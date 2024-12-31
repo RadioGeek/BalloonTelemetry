@@ -32,12 +32,13 @@
 #  Formula to convert grid to lat/lon:  https://www.m0nwk.co.uk/how-to-convert-maidenhead-locator-to-latitude-and-longitude/
 #  Solar calc:  https://pvlib-python.readthedocs.io/en/stable/_modules/pvlib/solarposition.html 
 
-import aprslib
 import calendar
-import time
 import datetime
 import math
-import re                        #regex
+import re  #regex
+import time
+
+import aprslib
 import maidenhead as mh
 
 #--------------------------------------------------------------------------------------------------------------#

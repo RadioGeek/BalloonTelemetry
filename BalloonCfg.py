@@ -19,11 +19,11 @@
 #
 #==============================================================================================================#
 
-import sys
-import logging
 import argparse
+import logging
+import sys
+
 from configupdater import ConfigUpdater
-import configparser
 
 from constants import CFG_FILE
 
@@ -54,37 +54,37 @@ def checkCfg(bCallsign: str):
     : return: (none)
     """
     if 'tracker' not in bCallsign.keys():
-        logging.error(f" *** Item 'tracker' was NOT found in CFG file" )
+        logging.error(" *** Item 'tracker' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if 'uploadcallsign' not in bCallsign.keys():
-        logging.error(f" *** Item 'uploadcallsign' was NOT found in CFG file" )
+        logging.error(" *** Item 'uploadcallsign' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if 'wsprcallsign' not in bCallsign.keys():
-        logging.error(f" *** Item 'wsprcallsign' was NOT found in CFG file" )
+        logging.error(" *** Item 'wsprcallsign' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if 'ballooncallsign' not in bCallsign.keys():
-        logging.error(f" *** Item 'ballooncallsign' was NOT found in CFG file" )
+        logging.error(" *** Item 'ballooncallsign' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if 'timeslot' not in bCallsign.keys():
-        logging.error(f" *** Item 'timeslot' was NOT found in CFG file" )
+        logging.error(" *** Item 'timeslot' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if 'comment' not in bCallsign.keys():
-        logging.error(f" *** Item 'comment' was NOT found in CFG file" )
+        logging.error(" *** Item 'comment' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if 'uploadsite' not in bCallsign.keys():
-        logging.error(f" *** Item 'uploadsite' was NOT found in CFG file" )
+        logging.error(" *** Item 'uploadsite' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if 'telemetryfile' not in bCallsign.keys():
-        logging.error(f" *** Item 'telemetryfile' was NOT found in CFG file" )
+        logging.error(" *** Item 'telemetryfile' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if 'ldatetime' not in bCallsign.keys():
-        logging.error(f" *** Item 'ldatetime' was NOT found in CFG file" )
+        logging.error(" *** Item 'ldatetime' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if bCallsign['tracker'] == 'U' and 'channel' not in bCallsign.keys():
-        logging.error(f" *** Item 'channel' was NOT found in CFG file" )
+        logging.error(" *** Item 'channel' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     if bCallsign['tracker'] == 'U' and 'band' not in bCallsign.keys():
-        logging.error(f" *** Item 'band' was NOT found in CFG file" )
+        logging.error(" *** Item 'band' was NOT found in CFG file" )
         sys.exit( "\n*** Missing CFG item, check log file ***" )
     return
 

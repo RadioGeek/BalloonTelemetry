@@ -31,15 +31,16 @@
 #       Github for Zachtek tracker:  https://github.com/HarrydeBug/WSPR-transmitters/ 
 #==============================================================================================================#
 
-import logging
-import traceback
-import urllib.request, urllib.error
 import json
-from socket import *
+import logging
 import pprint
+import traceback
+import urllib.error
+import urllib.request
+from socket import *
 
+from constants import SOFTWARE_NAME, __version__
 from miscFunctions import *
-from constants import __version__, SOFTWARE_NAME
 
 #--------------------------------------------------------------------------------------------------------------#
 
@@ -51,7 +52,7 @@ def matchQRPRecords(jWSPRRec1: list[dict], jWSPRRec2: list[dict]) -> list[dict]:
     : return: list
     """
     # determine if 2nd record avilable to process
-    logging.info(f" Starting record matching process")
+    logging.info(" Starting record matching process")
 
     print(f"jWSPRRec1 len = {len(jWSPRRec1)}")
     print(f"jWSPRRec2 len = {len(jWSPRRec2)}")
@@ -302,11 +303,11 @@ def getQRPLabs(bCfg: dict, lastdate: str) -> tuple[int, list[dict], str]:
     logging.info(f" Number of matched records = {len(aMatch)}" )
     if len(aMatch) < 2:
         # no matches to process
-        logging.warning(f" Insuficient number of records to process" )
+        logging.warning(" Insuficient number of records to process" )
         return 0, None, None
 
     #  decode each pair of matches and build upload data list
-    logging.info(f" Starting decoding process" )
+    logging.info(" Starting decoding process" )
     jDecodedData = {}
     jUploadData = []
     for i in range(0, len(aMatch), 2):

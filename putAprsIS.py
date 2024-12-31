@@ -38,11 +38,11 @@
 #       time = 121234z  (12th day at 1234 military time)
 #==============================================================================================================#
 
+import datetime
 import logging
 import traceback
+
 import aprslib
-import datetime
-import math
 
 from miscFunctions import *
 

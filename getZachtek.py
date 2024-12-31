@@ -31,17 +31,19 @@
 #       Github for Zachtek tracker:  https://github.com/HarrydeBug/WSPR-transmitters/ 
 #==============================================================================================================#
 
-import logging
-import traceback
-import urllib.request, urllib.error
 import json
+import logging
+import pprint
+import traceback
+import urllib.error
+import urllib.request
+
 #import time
 #import datetime
 from socket import *
-import pprint
 
+from constants import SOFTWARE_NAME, __version__
 from miscFunctions import *
-from constants import __version__, SOFTWARE_NAME
 
 #--------------------------------------------------------------------------------------------------------------#
 

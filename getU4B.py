@@ -36,17 +36,17 @@
 # real data:  WA1DVR-8, VE6AZX-14, AD6Z-12, LU1ESY-40, VE3KCL-37, AD6Z-11, VE3PRO-11, WB6TOU-14
 #       KN4IUD https://traquito.github.io/search/spots/dashboard/?band=20m&channel=336&callsign=KN4IUD&limit=2000&dtGte=2023-07-11&dtLte=2023-08-30
 
-import logging
-import traceback
-import urllib.request, urllib.error
-import json
 import csv
-from socket import *
+import json
+import logging
 import pprint
+import traceback
+import urllib.error
+import urllib.request
+from socket import *
 
+from constants import SOFTWARE_NAME, __version__
 from miscFunctions import *
-from constants import __version__, SOFTWARE_NAME
-
 
 #--------------------------------------------------------------------------------------------------------------#
 
@@ -58,7 +58,7 @@ def matchU4BRecords(jWSPRRec1: list[dict], jWSPRRec2: list[dict]) -> list[dict]:
     : return: list
     """
     # determine if 2nd record avilable to process
-    logging.info(f" Starting record matching process")
+    logging.info(" Starting record matching process")
 
     print(f"jWSPRRec1 len = {len(jWSPRRec1)}")
     print(f"jWSPRRec2 len = {len(jWSPRRec2)}")
@@ -314,11 +314,11 @@ def getU4B(bCfg: dict, lastdate: str) -> tuple[int, list[dict], str]:
     logging.info(f" Number of matched records = {len(aMatch)}" )
     if len(aMatch) < 2:
         # no matches to process
-        logging.warning(f" Insuficient number of records to process" )
+        logging.warning(" Insuficient number of records to process" )
         return 0, None, None
 
     #  decode each pair of matches and build upload data list
-    logging.info(f" Starting decoding process" )
+    logging.info(" Starting decoding process" )
     jDecodedData = {}
     jUploadData = []
     for i in range(0, len(aMatch), 2):
@@ -346,7 +346,7 @@ def getU4B(bCfg: dict, lastdate: str) -> tuple[int, list[dict], str]:
     # if option selected, create data file for John
     if bCfg['telemetryfile'] == 'Y':
         #pprint.pp(jDecodedData, indent=2)
-        logging.info(f" Saving telemetry data to CSV file" )
+        logging.info(" Saving telemetry data to CSV file" )
         outputFilename = BalloonCallsign + ".csv"
         with open(outputFilename, 'w') as file:
             csv_file = csv.writer(file)

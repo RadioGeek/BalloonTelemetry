@@ -14,7 +14,8 @@
 #==============================================================================================================#
 
 import math
-from typing import List, Dict, Tuple
+from typing import Tuple
+
 
 def SunPosition(when: Tuple, location: Tuple, refraction: bool) -> Tuple[float, float]:
     """
