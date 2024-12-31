@@ -353,9 +353,11 @@ def getAB5SS(bCfg: dict, last_date: str):
 
         # add telemetry data
         # build strComment  channel, Sats?, voltage?, alt(m), 0C?, grid, callsign2, callsign1, comment
-        strComment = str(jDecodedData[i]['channel']) + " Sats " + jDecodedData[i]['sats'] + str(jDecodedData[i]['altitude']) + "m " 
-        strComment += str(jDecodedData[i]['temp']) + "C " + jDecodedData[i]['grid'] + " " + jDecodedData[i]['callsign2'] + " " + jDecodedData[i]['callsign1'] + " " + bCfg['comment']
-
+        #strComment = str(jDecodedData[i]['channel']) + " Sats " + jDecodedData[i]['sats'] + str(jDecodedData[i]['altitude']) + "m " 
+        #strComment += str(jDecodedData[i]['temp']) + "C " + jDecodedData[i]['grid'] + " " + jDecodedData[i]['callsign2'] + " " + jDecodedData[i]['callsign1'] + " " + bCfg['comment']
+        strComment = str(" GPS " + jDecodedData[i]['sats'] + " " + jDecodedData[i]['temp']) + "C " str(jDecodedData[i]['altitude']) + "m " 
+        strComment += str(jDecodedData[i]['speed']) + "kt " + jDecodedData[i]['grid'] + " " + jDecodedData[i]['callsign2'] + " " + bCfg['comment']
+        
         # put data into jUploadData format for uploading
         lat, lon = GridtoLatLon(jDecodedData[i]['grid'])
         JSON = {"software_name" : SOFTWARE_NAME, "software_version" : __version__, "uploader_callsign" : bCfg['uploadcallsign'], "time_received" : datetime1,
